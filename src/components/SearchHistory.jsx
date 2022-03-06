@@ -1,5 +1,11 @@
 import * as React from "react";
-import { List, ListItem, ListItemText, Box, Divider } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Box,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
@@ -17,6 +23,7 @@ const SearchHistory = () => {
     <List className="SearchHistory" disablePadding>
       {generate(
         <ListItem
+          disablePadding
           secondaryAction={
             <Box>
               <IconButton aria-label="search">
@@ -29,7 +36,9 @@ const SearchHistory = () => {
           }
           sx={{ fontWeight: "bold" }}
         >
-          <ListItemText primary="Johor, MY" secondary="03:15:02 PM" />
+          <ListItemButton>
+            <ListItemText primary="Johor, MY" secondary="03:15:02 PM" />
+          </ListItemButton>
         </ListItem>
       )}
     </List>
