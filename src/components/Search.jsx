@@ -145,9 +145,7 @@ const Search = () => {
         renderInput={(params) => <TextField {...params} label="Country" />}
       />
       <Stack direction="row" justifyContent="center" spacing={2}>
-        <Button variant="contained">
-          Search
-        </Button>
+        <Button variant="contained">Search</Button>
         <Button variant="contained" color="error">
           Clear
         </Button>
