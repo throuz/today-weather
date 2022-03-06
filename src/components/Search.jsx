@@ -1,4 +1,4 @@
-import { Box, Autocomplete, TextField, Button, Stack } from "@mui/material";
+import { Autocomplete, TextField, Button, Stack } from "@mui/material";
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
