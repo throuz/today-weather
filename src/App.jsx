@@ -6,36 +6,36 @@ import SearchHistory from "./components/SearchHistory";
 import axios from "./axios";
 
 const App = () => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState(null);
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [items, setItems] = useState(null);
 
-  useEffect(() => {
-    axios
-      .get("data/2.5/weather", {
-        params: {
-          lat: 35,
-          lon: 139,
-        },
-      })
-      .then((result) => {
-        setIsLoaded(true);
-        console.log(result.data.weather[0].main);
-        setItems(result.data.weather[0].main);
-      })
-      .catch((error) => {
-        setIsLoaded(true);
-        setError(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("data/2.5/weather", {
+  //       params: {
+  //         lat: 35,
+  //         lon: 139,
+  //       },
+  //     })
+  //     .then((result) => {
+  //       setIsLoaded(true);
+  //       console.log(result.data.weather[0].main);
+  //       setItems(result.data.weather[0].main);
+  //     })
+  //     .catch((error) => {
+  //       setIsLoaded(true);
+  //       setError(error);
+  //     });
+  // }, []);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return <div>{items}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error.message}</div>;
+  // } else if (!isLoaded) {
+  //   return <div>Loading...</div>;
+  // } else {
+  //   return <div>{items}</div>;
+  // }
 
   return (
     <Container maxWidth="md">

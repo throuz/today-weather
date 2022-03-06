@@ -1,4 +1,5 @@
 import { Autocomplete, TextField, Button, Stack } from "@mui/material";
+import CountrySelect from "./CountrySelect";
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
@@ -142,12 +143,7 @@ const Search = () => {
         sx={{ width: { md: 300 } }}
         renderInput={(params) => <TextField {...params} label="City" />}
       />
-      <Autocomplete
-        size={"small"}
-        options={top100Films}
-        sx={{ width: { md: 300 } }}
-        renderInput={(params) => <TextField {...params} label="Country" />}
-      />
+      <CountrySelect />
       <Stack direction="row" justifyContent="center" spacing={2}>
         <Button variant="contained">Search</Button>
         <Button variant="contained" color="error">
