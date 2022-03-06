@@ -1,45 +1,12 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Button from "@mui/material/Button";
+import { Stack, Box, Divider } from "@mui/material";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <header className="App-header">
-        <Button variant="contained">Hello World</Button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Stack divider={<Divider />} spacing={2} sx={{ p: 2 }}>
+        <Box sx={{ typography: "h6" }}>Today's Weather</Box>
+        <Box sx={{ typography: "h6" }}>Today's Weather</Box>
+      </Stack>
     </div>
   );
 };
