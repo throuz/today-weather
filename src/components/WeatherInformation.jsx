@@ -2,7 +2,7 @@ import { Card, CardContent, Typography, Grid } from "@mui/material";
 
 const WeatherInformation = () => {
   return (
-    <Card variant="outlined">
+    <Card className="WeatherInformation" variant="outlined">
       <CardContent>
         <Typography color="text.secondary" gutterBottom>
           Johor, MY
