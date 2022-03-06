@@ -38,8 +38,8 @@ const App = () => {
   // }
 
   return (
-    <Container maxWidth="md">
-      <Stack className="App" spacing={2} sx={{ px: 2, py: 4 }}>
+    <Container className="App" maxWidth="md">
+      <Stack spacing={2} sx={{ px: 2, py: 4 }}>
         <Typography variant="h5" sx={{ fontWeight: "bold", borderBottom: 1 }}>
           Today's Weather
         </Typography>
