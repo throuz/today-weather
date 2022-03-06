@@ -131,17 +131,21 @@ const top100Films = [
 
 const Search = () => {
   return (
-    <Box className="Search">
+    <Stack
+      className="Search"
+      direction={{ xs: "column", sm: "column", md: "row" }}
+      spacing={2}
+    >
       <Autocomplete
         size={"small"}
         options={top100Films}
-        sx={{ mb: 2 }}
+        sx={{ width: { md: 300 } }}
         renderInput={(params) => <TextField {...params} label="City" />}
       />
       <Autocomplete
         size={"small"}
         options={top100Films}
-        sx={{ mb: 2 }}
+        sx={{ width: { md: 300 } }}
         renderInput={(params) => <TextField {...params} label="Country" />}
       />
       <Stack direction="row" justifyContent="center" spacing={2}>
@@ -150,7 +154,7 @@ const Search = () => {
           Clear
         </Button>
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 
