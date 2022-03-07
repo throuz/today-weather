@@ -1,5 +1,5 @@
 import { TextField, Autocomplete } from "@mui/material";
-import citiesData from "./cities";
+import citiesData from "../datas/cities";
 
 // For performance problems, take 1000 pieces of data first, remember to fix it here
 const cities = citiesData

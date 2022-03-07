@@ -1,5 +1,5 @@
 import { Box, TextField, Autocomplete } from "@mui/material";
-import countries from "./countries";
+import countries from "../datas/countries";
 
 const CountrySelect = () => {
   return (
