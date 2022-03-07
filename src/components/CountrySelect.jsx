@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { changeCity } from "../app/citySlice";
 import { changeCountry } from "../app/countrySlice";
 import {
   changeCityInputState,
@@ -48,6 +49,7 @@ const CountrySelect = () => {
       )}
       onChange={(event, newValue) => {
         dispatch(changeCountry(newValue));
+        dispatch(changeCity(null));
         dispatch(changeCityInputState());
       }}
     />

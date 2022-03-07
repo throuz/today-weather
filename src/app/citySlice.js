@@ -17,6 +17,8 @@ export const citySlice = createSlice({
 
 export const { changeCity } = citySlice.actions;
 
+export const selectCity = (state) => state.city.value;
+
 export const selectCities = (state) =>
   citiesData.filter((city) => city.country === state.country.value?.code);
 
