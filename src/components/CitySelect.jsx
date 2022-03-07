@@ -1,9 +1,10 @@
 import { TextField, Autocomplete } from "@mui/material";
 import citiesData from "./cities";
 
-const cities = citiesData.map(
-  (city) => `${city.name} (${city.lat}, ${city.lng})`
-);
+// For performance problems, take 1000 pieces of data first, remember to fix it here
+const cities = citiesData
+  .map((city) => `${city.name} (${city.lat}, ${city.lng})`)
+  .slice(0, 1000);
 
 const CitySelect = () => {
   return (
