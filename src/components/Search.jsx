@@ -9,8 +9,8 @@ const Search = () => {
       direction={{ xs: "column", sm: "column", md: "row" }}
       spacing={2}
     >
-      <CitySelect />
       <CountrySelect />
+      <CitySelect />
       <Stack direction="row" justifyContent="center" spacing={2}>
         <Button variant="contained">Search</Button>
         <Button variant="contained" color="error">

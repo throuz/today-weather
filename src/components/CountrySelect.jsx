@@ -1,7 +1,11 @@
+import { useDispatch } from "react-redux";
+import { changeCountry } from "../app/countrySlice";
 import { Box, TextField, Autocomplete } from "@mui/material";
 import countries from "../datas/countries";
 
 const CountrySelect = () => {
+  const dispatch = useDispatch();
+
   return (
     <Autocomplete
       className="CountrySelect"
@@ -29,13 +33,16 @@ const CountrySelect = () => {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Choose a country"
+          label="Choose a Country"
           inputProps={{
             ...params.inputProps,
             autoComplete: "new-password", // disable autocomplete and autofill
           }}
         />
       )}
+      onChange={(event, newValue) => {
+        dispatch(changeCountry(newValue));
+      }}
     />
   );
 };

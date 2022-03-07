@@ -1,29 +1,43 @@
+import { useSelector, useDispatch } from "react-redux";
+import { changeCity, selectCity, selectCities } from "../app/citySlice";
+import { selectCountry } from "../app/countrySlice";
 import { TextField, Autocomplete } from "@mui/material";
-import citiesData from "../datas/cities";
-
-// For performance problems, take 1000 pieces of data first, remember to fix it here
-const cities = citiesData
-  .map((city) => `${city.name} (${city.lat}, ${city.lng})`)
-  .slice(0, 1000);
 
 const CitySelect = () => {
+  const dispatch = useDispatch();
+  const city = useSelector(selectCity);
+  const cities = useSelector(selectCities);
+  const country = useSelector(selectCountry);
+  console.log(city);
+  console.log(country);
+
+  const round = (num) => Math.round(num * 100) / 100;
+
   return (
     <Autocomplete
+      key={!!country}
       className="CitySelect"
       size={"small"}
       sx={{ width: { md: 300 } }}
+      disabled={!country}
       options={cities}
       autoHighlight
+      getOptionLabel={(option) =>
+        `${option.name}  (${round(option.lat)}, ${round(option.lng)})`
+      }
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Choose a city"
+          label="Choose a City"
           inputProps={{
             ...params.inputProps,
             autoComplete: "new-password", // disable autocomplete and autofill
           }}
         />
       )}
+      onChange={(event, newValue) => {
+        dispatch(changeCity(newValue));
+      }}
     />
   );
 };
