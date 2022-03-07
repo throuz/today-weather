@@ -1,21 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeCity, selectCity, selectCities } from "../app/citySlice";
+import { changeCity, selectCities } from "../app/citySlice";
 import { selectCountry } from "../app/countrySlice";
+import { selectCityInputState } from "../app/inputStateSlice";
 import { TextField, Autocomplete } from "@mui/material";
 
 const CitySelect = () => {
   const dispatch = useDispatch();
-  const city = useSelector(selectCity);
   const cities = useSelector(selectCities);
   const country = useSelector(selectCountry);
-  console.log(city);
-  console.log(country);
-
+  const cityInputState = useSelector(selectCityInputState);
   const round = (num) => Math.round(num * 100) / 100;
 
   return (
     <Autocomplete
-      key={!!country}
+      key={cityInputState}
       className="CitySelect"
       size={"small"}
       sx={{ width: { md: 300 } }}

@@ -1,13 +1,19 @@
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { changeCountry } from "../app/countrySlice";
+import {
+  changeCityInputState,
+  selectCountryInputState,
+} from "../app/inputStateSlice";
 import { Box, TextField, Autocomplete } from "@mui/material";
 import countries from "../datas/countries";
 
 const CountrySelect = () => {
   const dispatch = useDispatch();
+  const countryInputState = useSelector(selectCountryInputState);
 
   return (
     <Autocomplete
+      key={countryInputState}
       className="CountrySelect"
       size={"small"}
       sx={{ width: { md: 300 } }}
@@ -42,6 +48,7 @@ const CountrySelect = () => {
       )}
       onChange={(event, newValue) => {
         dispatch(changeCountry(newValue));
+        dispatch(changeCityInputState());
       }}
     />
   );
