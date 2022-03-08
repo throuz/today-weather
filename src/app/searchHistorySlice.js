@@ -9,7 +9,7 @@ export const searchHistorySlice = createSlice({
   initialState,
   reducers: {
     addSearchHistory: (state, action) => {
-      state.value.push(action.payload);
+      state.value.unshift(action.payload);
     },
     removeSearchHistory: (state, action) => {
       state.value.splice(action.payload, 1);
