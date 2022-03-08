@@ -14,23 +14,23 @@ const SearchButtons = () => {
   const city = useSelector(selectCity);
   const [open, setOpen] = useState(false);
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
-
   return (
     <Stack className="SearchButtons" direction="row" justifyContent="center">
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={open}
         autoHideDuration={1000}
-        onClose={handleClose}
+        onClose={() => {
+          setOpen(false);
+        }}
       >
-        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+        <Alert
+          onClose={() => {
+            setOpen(false);
+          }}
+          severity="error"
+          sx={{ width: "100%" }}
+        >
           City cannot be empty!
         </Alert>
       </Snackbar>
