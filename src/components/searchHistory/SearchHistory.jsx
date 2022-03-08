@@ -20,8 +20,6 @@ import date from "date-and-time";
 const SearchHistory = () => {
   const dispatch = useDispatch();
   const history = useSelector(selectSearchHistory);
-  console.log(history);
-
   const current = date.format(new Date(), "hh:mm:ss A");
 
   return (

@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: [],
+  value: localStorage.getItem("searchHistory")
+    ? JSON.parse(localStorage.getItem("searchHistory"))
+    : [],
 };
 
 export const searchHistorySlice = createSlice({
@@ -10,9 +12,11 @@ export const searchHistorySlice = createSlice({
   reducers: {
     addSearchHistory: (state, action) => {
       state.value.unshift(action.payload);
+      localStorage.setItem("searchHistory", JSON.stringify(state.value));
     },
     removeSearchHistory: (state, action) => {
       state.value.splice(action.payload, 1);
+      localStorage.setItem("searchHistory", JSON.stringify(state.value));
     },
   },
 });
