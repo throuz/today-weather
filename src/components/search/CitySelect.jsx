@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeCity, selectCities } from "../app/citySlice";
-import { selectCountry } from "../app/countrySlice";
-import { selectCityInputState } from "../app/inputStateSlice";
+import { changeCity, selectCities } from "../../app/citySlice";
+import { selectCountry } from "../../app/countrySlice";
+import { selectCityInputState } from "../../app/inputStateSlice";
 import { TextField, Autocomplete } from "@mui/material";
 
 const CitySelect = () => {

@@ -4,7 +4,7 @@ import {
   getWeatherAsync,
   selectWeather,
   selectWeatherStatus,
-} from "../app/weatherSlice";
+} from "../../app/weatherSlice";
 import {
   Card,
   CardContent,
