@@ -6,13 +6,17 @@ import {
   changeCityInputState,
   changeCountryInputState,
 } from "../../app/inputStateSlice";
+import { addSearchHistory } from "../../app/searchHistorySlice";
 import { getWeatherAsync } from "../../app/weatherSlice";
 import { Button, Stack, Snackbar, Alert } from "@mui/material";
+import date from "date-and-time";
 
 const SearchButtons = () => {
   const dispatch = useDispatch();
   const city = useSelector(selectCity);
   const [open, setOpen] = useState(false);
+
+  const current = date.format(new Date(), "hh:mm:ss A");
 
   return (
     <Stack className="SearchButtons" direction="row" justifyContent="center">
@@ -38,6 +42,7 @@ const SearchButtons = () => {
         variant="contained"
         onClick={() => {
           if (city) {
+            dispatch(addSearchHistory({ time: current, ...city }));
             dispatch(getWeatherAsync({ lat: city.lat, lon: city.lng }));
           } else {
             setOpen(true);

@@ -1,4 +1,9 @@
-import * as React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addSearchHistory,
+  removeSearchHistory,
+  selectSearchHistory,
+} from "../../app/searchHistorySlice";
 import {
   List,
   ListItem,
@@ -10,19 +15,15 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
 
-function generate(element) {
-  return [0, 1, 2, 3, 4, 5, 6].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    })
-  );
-}
-
 const SearchHistory = () => {
+  const dispatch = useDispatch();
+  const history = useSelector(selectSearchHistory);
+
   return (
     <List className="SearchHistory" disablePadding>
-      {generate(
+      {history.map((item, index) => (
         <ListItem
+          key={index}
           disablePadding
           secondaryAction={
             <Box>
@@ -37,10 +38,13 @@ const SearchHistory = () => {
           sx={{ fontWeight: "bold" }}
         >
           <ListItemButton>
-            <ListItemText primary="Johor, MY" secondary="03:15:02 PM" />
+            <ListItemText
+              primary={item.name + ", " + item.country}
+              secondary={item.time}
+            />
           </ListItemButton>
         </ListItem>
-      )}
+      ))}
     </List>
   );
 };

@@ -24,8 +24,7 @@ const WeatherInformation = () => {
     dispatch(getWeatherAsync({ lat: 25.04776, lon: 121.53185 }));
   }, []);
 
-  const now = new Date();
-  const current = date.format(now, "YYYY-MM-DD HH:mm A");
+  const current = date.format(new Date(), "YYYY-MM-DD hh:mm A");
 
   return (
     <Card className="WeatherInformation" variant="outlined">
